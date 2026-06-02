@@ -1,2 +1,21 @@
-# Car-Rental-Management-System
-Web-based car rental management system built using .NET MVC and SQL Server.
+# Car Rental Management System
+
+## Overview
+A web-based platform for managing car rentals, bookings, and customer records.
+
+## Features
+- User Registration
+- Car Listing
+- Booking Management
+- Payment Tracking
+- Admin Dashboard
+
+## Tech Stack
+- .NET MVC
+- SQL Server
+- HTML
+- CSS
+- JavaScript
+
+## Author
+Neel Udhanawala
