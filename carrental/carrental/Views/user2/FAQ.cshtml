@@ -1,0 +1,35 @@
+﻿@model IEnumerable<carrental.Models.FAQ>
+@{
+    Layout = "~/Views/Shared/_Userlayout2.cshtml";
+}
+
+<br />
+<table class="table">
+ 
+    <div class="row">
+@{ int i = 1;}
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-12">
+                <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
+                            <h1>@i</h1>
+                        </div>
+
+
+
+                    </div>
+                    
+                    <h4 class="text-uppercase mb-3"> @Html.DisplayFor(modelItem => item.question)</h4>
+                    <p class="m-0"> @Html.DisplayFor(modelItem => item.answer)</p>
+                </div>
+                </div>
+            i++;
+
+        }
+        
+        </div>
+    </table>
+     

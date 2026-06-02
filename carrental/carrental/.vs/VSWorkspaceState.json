@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\App_Start",
+    "\\bin",
+    "\\Content",
+    "\\Controllers",
+    "\\fonts",
+    "\\Views",
+    "\\Views\\Shared",
+    "\\Views\\user",
+    "\\Views\\userlist"
+  ],
+  "SelectedNode": "\\Views\\Shared\\_Adminlayout.cshtml",
+  "PreviewInSolutionExplorer": false
+}

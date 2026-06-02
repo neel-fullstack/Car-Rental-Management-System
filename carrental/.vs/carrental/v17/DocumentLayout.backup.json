@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\BCA\\carrental\\carrental\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|e:\\bca\\carrental\\carrental\\carrental\\controllers\\admin_registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|solutionrelative:carrental\\controllers\\admin_registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|e:\\bca\\carrental\\carrental\\carrental\\views\\admin_register\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|solutionrelative:carrental\\views\\admin_register\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|E:\\BCA\\carrental\\carrental\\carrental\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|solutionrelative:carrental\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|E:\\BCA\\carrental\\carrental\\carrental\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{395CC719-622D-41C2-86B4-3DA3C322627B}|carrental\\carrental.csproj|solutionrelative:carrental\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 179,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "admin_registerController.cs",
+              "DocumentMoniker": "E:\\BCA\\carrental\\carrental\\carrental\\Controllers\\admin_registerController.cs",
+              "RelativeDocumentMoniker": "carrental\\Controllers\\admin_registerController.cs",
+              "ToolTip": "E:\\BCA\\carrental\\carrental\\carrental\\Controllers\\admin_registerController.cs",
+              "RelativeToolTip": "carrental\\Controllers\\admin_registerController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T06:21:06.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\BCA\\carrental\\carrental\\carrental\\Views\\admin_register\\Login.cshtml",
+              "RelativeDocumentMoniker": "carrental\\Views\\admin_register\\Login.cshtml",
+              "ToolTip": "E:\\BCA\\carrental\\carrental\\carrental\\Views\\admin_register\\Login.cshtml",
+              "RelativeToolTip": "carrental\\Views\\admin_register\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T06:11:37.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\BCA\\carrental\\carrental\\carrental\\Views\\user\\Index.cshtml",
+              "RelativeDocumentMoniker": "carrental\\Views\\user\\Index.cshtml",
+              "ToolTip": "E:\\BCA\\carrental\\carrental\\carrental\\Views\\user\\Index.cshtml",
+              "RelativeToolTip": "carrental\\Views\\user\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T06:09:45.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "userController.cs",
+              "DocumentMoniker": "E:\\BCA\\carrental\\carrental\\carrental\\Controllers\\userController.cs",
+              "RelativeDocumentMoniker": "carrental\\Controllers\\userController.cs",
+              "ToolTip": "E:\\BCA\\carrental\\carrental\\carrental\\Controllers\\userController.cs",
+              "RelativeToolTip": "carrental\\Controllers\\userController.cs",
+              "ViewState": "AQIAADEBAAAAAAAAAAAjwEMBAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T06:09:46.2Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

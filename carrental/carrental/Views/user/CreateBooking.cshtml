@@ -1,0 +1,475 @@
+﻿@model carrental.Models.booked
+
+@{
+    ViewBag.Title = "CreateBooking";
+}
+@{
+    Layout = "~/Views/Shared/_Userlayout2.cshtml";
+    carrental.Models.car_type cc = (carrental.Models.car_type)ViewData["cartype"];
+    //Model.carid = cc.car_Id;
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <br />
+    <br />
+    <br />
+    <div class="form-horizontal">
+        <div class="container-fluid pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 class="mb-4">Personal Detail</h2>
+                        <div class="mb-5">
+                            <div class="row">
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                <div class="col-6 class="form-group">
+                                    @* @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">FirstName</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control p-4" } })
+                                        @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @*  @Html.LabelFor(model => model.lastname, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">LastName</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control p-4" } })
+                                        @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @*@Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">YourEmail</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control p-4" } })
+                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @*  @Html.LabelFor(model => model.mobilenumber, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">MobileNumber</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.mobilenumber, new { htmlAttributes = new { @class = "form-control p-4" } })
+                                        @Html.ValidationMessageFor(model => model.mobilenumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                @Html.HiddenFor(model => model.carid)
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+                        <h2 class="mb-4">Driver</h2>
+                        <div class="mb-5">
+                            <div class="row">
+
+
+                                <div class="col-6 class="form-group">
+
+                                    @*     @Html.LabelFor(model => model.payment, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+
+                                        @Html.RadioButtonFor(model => model.driver, "With Driver")  With Driver <br />
+                                        @Html.ValidationMessageFor(model => model.driver, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+
+                                    @*     @Html.LabelFor(model => model.payment, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+
+
+                                        @Html.RadioButtonFor(model => model.driver, "Without Driver")   Without Driver
+                                        @Html.ValidationMessageFor(model => model.driver, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                           
+                        </div>
+
+                        <h2 class="mb-4">Booking Detail</h2>
+                        <div class="mb-5">
+                            <div class="row">
+
+                                <div class="col-6 class="form-group">
+                                    @*   @Html.LabelFor(model => model.Pickuplocation, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">PickUpLocation</label>
+                                    <div class="col-md-10">
+                                        <select class="custom-select px-4 mb-3" style="height: 50px;" name="Pickup">
+                                            <option selected>PickUpLocation</option>
+                                            @foreach (var data in ViewData["City"] as IEnumerable<carrental.Models.City>)
+                                            {
+                                                <option>
+
+                                                    @data.city_name
+
+                                                </option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-6 class="form-group">
+                                    @* @Html.LabelFor(model => model.Droplocation, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">DropLocation</label>
+                                    <div class="col-md-10">
+                                        <select class="custom-select px-4 mb-3" style="height: 50px;" name="Drop">
+                                            <option selected>DropLocation</option>
+                                            @foreach (var data in ViewData["City"] as IEnumerable<carrental.Models.City>)
+                                            {
+                                                <option>
+
+                                                    @data.city_name
+
+                                                </option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @*@Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">PickupAddress</label>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.pickupaddress, new { @class = "form-control p-4" })
+                                        @Html.ValidationMessageFor(model => model.pickupaddress, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-6 class="form-group">
+                                    @*@Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">DropAddress</label>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.dropaddress, new { @class = "form-control p-4" })
+                                        @Html.ValidationMessageFor(model => model.dropaddress, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @* @Html.LabelFor(model => model.start_date, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">StartDate</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.start_date, new { htmlAttributes = new { @class = "form-control datepicker p-4" } })
+                                        @Html.ValidationMessageFor(model => model.start_date, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @* @Html.LabelFor(model => model.start_time, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">StartTime</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.start_time, new { htmlAttributes = new { @class = "form-control timepicker p-4" } })
+                                        @Html.ValidationMessageFor(model => model.start_time, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @* @Html.LabelFor(model => model.end_date, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">EndDate</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.end_date, new { htmlAttributes = new { @class = "form-control datepicker p-4" } })
+                                        @Html.ValidationMessageFor(model => model.end_date, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-6 class="form-group">
+                                    @*@Html.LabelFor(model => model.end_time, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">EndTime</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.end_time, new { htmlAttributes = new { @class = "form-control timepicker p-4" } })
+                                        @Html.ValidationMessageFor(model => model.end_time, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-6 class="form-group">
+                                    @*@Html.LabelFor(model => model.end_time, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">No.Of.Days</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.No_Of_Days, new { htmlAttributes = new { @class = "form-control timepicker p-4" } })
+                                        @Html.ValidationMessageFor(model => model.No_Of_Days, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+
+                             
+
+
+
+                                <div class="col-6 class="form-group">
+                                    @*@Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">Description</label>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.description, new { @class = "form-control p-4" })
+                                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                         
+
+
+
+
+
+
+                            <!--<div class="col-6 class="form-group">-->
+                            @*@Html.LabelFor(model => model.BookingDate, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <!--<div class="col-md-10">
+                    @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control datepicker p-4" } })
+                    @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
+                </div>
+            </div>-->
+
+
+
+
+
+
+                            <h2 class="mb-4">Payment Method</h2>
+                            <div class="mb-5">
+                                <div class="row">
+
+
+                                    <div class="col-6 class="form-group">
+                                        <div class="form-group">
+                                            @*     @Html.LabelFor(model => model.payment, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                            <div class="col-md-10">
+
+                                                @Html.RadioButtonFor(model => model.payment, "online payment") RazorPay(online payment)
+                                                @Html.ValidationMessageFor(model => model.payment, "", new { @class = "text-danger" })
+                                                <br />
+
+                                                @Html.RadioButtonFor(model => model.payment, "cash on drop")   Cash On Drop
+                                                @Html.ValidationMessageFor(model => model.payment, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="bg-secondary p-5 mb-5">
+                            <h2 class="text-primary mb-4">Car details</h2>
+
+                            <br />
+                            <br />
+                            <div class="form-group mb-4">
+
+
+                                <label>Car name: @cc.car_name</label>
+
+                            </div>
+                            <div class="form-group mb-4">
+
+
+                                <label>Seats: @cc.No_of_seats</label>
+
+                            </div>
+
+                            <div class="form-group mb-4">
+
+
+                                <label>Year: @cc.Manufacture</label>
+
+                            </div>
+                            <div class="form-group mb-4">
+
+
+                                <label>car number: @cc.Car_number</label>
+
+                            </div>
+
+
+
+                            <br />
+                            <br />
+                            <div class="form-group mb-4">
+
+                                <input type="hidden" name="perdayprice" id="perdayprice" value="@cc.Per_day_price" />
+                                <label class="btn btn-primary btn-block">₹ @cc.Per_day_price / Full Day / Self Driven</label>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <br />
+
+                     
+
+
+                        <div class="bg-secondary p-5 mb-5">
+
+
+                            <h2 class="text-primary mb-4">Billing Details</h2>
+
+                            <br />
+                            
+                            <table style="width:100%">
+
+                                <tr>
+                                    <td>BillAmount:</td>
+                                    <td>
+                                        <div class="form-group mb-4">
+                                            @*   @Html.LabelFor(model => model.user_emailid, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Bill_Amount, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Bill_Amount, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>DriverCharge:</td>
+                                    <td>
+                                        <div class="form-group mb-4">
+                                            @*   @Html.LabelFor(model => model.user_emailid, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Driver_charge, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Driver_charge, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <hr  />
+                            <table style="width:100%">
+
+
+                                @*<tr>
+                <td><hr style="width:500px;" /></td>
+            </tr>*@
+
+
+                                <tr>
+                                    <td>NetAmountPay:</td>
+
+                                    <td>
+
+                                        <div class="form-group mb-4">
+                                            @*   @Html.LabelFor(model => model.user_emailid, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Net_Amount_Pay, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Net_Amount_Pay, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                            </table>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+                        <button class="btn btn-block btn-primary py-3">Reserve Now</button>
+                    </div>
+                    </div>
+        </div>
+    </div>
+
+    <!-- Car Booking End -->
+
+
+
+
+
+    <!-- Car Booking Start -->
+    @*<div class="col-6 form-group">
+                <input type="text" class="form-control p-4" placeholder="First Name" required="required">
+            </div>
+            <div class="col-6 form-group">
+                <input type="text" class="form-control p-4" placeholder="Last Name" required="required">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 form-group">
+                <input type="email" class="form-control p-4" placeholder="Your Email" required="required">
+            </div>
+            <div class="col-6 form-group">
+                <input type="text" class="form-control p-4" placeholder="Mobile Number" required="required">
+            </div>
+        </div>*@
+
+}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    /*$("#start_date").change(function () {
+        alert("The text has been changed.");
+    });*/
+    $("#end_date").change(function () {
+        var sdate = $("#start_date").val();
+        var edate = $("#end_date").val();
+        
+         var   date1 = new Date(sdate);
+      var  date2 = new Date(edate);
+        var milli_secs = date1.getTime() - date2.getTime();
+
+        // Convert the milli seconds to Days 
+        var days = milli_secs / (1000 * 3600 * 24);
+        var ndays = Math.round(Math.abs(days));
+        $("#No_Of_Days").val(ndays);
+
+        var perdayprice = $("#perdayprice").val();
+        var total = ndays * perdayprice;
+        $("#Bill_Amount").val(total);
+        var dcharge = 1000;
+        var totaldriver = 0;
+        var res = $("input[name='driver']:checked").val();
+        //alert(res);
+        if (res == "With Driver")
+            totaldriver = ndays * dcharge;
+        //alert(totaldriver);
+
+        $("#Driver_charge").val(totaldriver);
+        $("#Net_Amount_Pay").val(totaldriver + total);
+        //alert("The text has been changed." + total + "  " + perdayprice + ndays);
+    });
+</script>

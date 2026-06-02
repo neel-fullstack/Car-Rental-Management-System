@@ -1,0 +1,153 @@
+﻿@model carrental.Models.Admin_register
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Admin_register</title>
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="~/Admin/simplebar.css">
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="~/Admin/css/feather.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="~/Admin/css/daterangepicker.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="~/Admin/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="~/Admin/css/app-dark.css" id="darkTheme" disabled>
+</head>
+<body class="light ">
+    <div class="wrapper vh-100">
+        <div class="row align-items-center h-100">
+            
+               
+
+                @using (Html.BeginForm("Create", "admin_register", FormMethod.Post, new
+
+                {
+                    enctype = "multipart/form-data",
+                  @class="col-lg-6 col-md-8 col-10 mx-auto"
+                  }
+                
+                ))
+                {
+                    @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <div class="mx-auto text-center my-4">
+                    <a href="./index.html">
+                        <img src="~/Admin/assets/images/logo-no-background.png" alt="..." class="avatar-img" height="50px" width="200px">
+                    </a>
+
+                    <h2 class="my-3">Register</h2>
+
+                </div>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label>NAME</label>
+
+                    @*@Html.LabelFor(model => model.admin_name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <center>
+
+                        @Html.EditorFor(model => model.admin_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.admin_name, "", new { @class = "text-danger" })
+
+                    </center>
+                </div>
+
+                <div class="form-group">
+                    <label>PASSWORD</label>
+                    @*@Html.LabelFor(model => model.admin_password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <center>
+
+                        @Html.EditorFor(model => model.admin_password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.admin_password, "", new { @class = "text-danger" })
+
+                    </center>
+                </div>
+
+                <div class="form-group">
+                    <label>EMAIL</label>
+                    @*@Html.LabelFor(model => model.admin_email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <center>
+
+                        @Html.EditorFor(model => model.admin_email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.admin_email, "", new { @class = "text-danger" })
+                    </center>
+                </div>
+
+                <div class="form-group">
+                    <label>CONTACT NO</label>
+                    @*@Html.LabelFor(model => model.admin_contact, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <center>
+
+                        @Html.EditorFor(model => model.admin_contact, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.admin_contact, "", new { @class = "text-danger" })
+
+                    </center>
+                </div>
+
+                <div class="form-group">
+                    <label>PROFILE PICTURE</label>
+                    @*@Html.LabelFor(model => model.admin_profilepic, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+
+                    @*@Html.EditorFor(model => model.admin_profilepic, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.admin_profilepic, "", new { @class = "text-danger" })*@
+                    <br><input type="file" name="file" required çlass="form-control" /><br>
+
+
+                </div>
+                <hr />
+                <center>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Sign up" class="btn btn-lg btn-primary btn-block" />
+                        </div>
+                    </div>
+                </center>
+            </div>
+                }
+
+
+
+            
+
+        </div>
+    </div>
+    <script src="a~/Admin/js/jquery.min.js"></script>
+    <script src="~/Admin/js/popper.min.js"></script>
+    <script src="~/Admin/js/moment.min.js"></script>
+    <script src="~/Admin/js/bootstrap.min.js"></script>
+    <script src="~/Admin/js/simplebar.min.js"></script>
+    <script src='~/Admin/js/daterangepicker.js'></script>
+    <script src='~/Admin/js/jquery.stickOnScroll.js'></script>
+    <script src="~/Admin/js/tinycolor-min.js"></script>
+    <script src="~/Admin/js/config.js"></script>
+    <script src="~/Admin/js/apps.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-56159088-1');
+    </script>
+</body>
+</html>

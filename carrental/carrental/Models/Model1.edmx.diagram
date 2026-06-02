@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58f5851212c34739a9de43b990241dae" Name="Diagram1" ZoomLevel="33">
+        <EntityTypeShape EntityType="carrentalModel.FAQ" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="carrentalModel.Brand" Width="1.5" PointX="6" PointY="0.5" />
+        <EntityTypeShape EntityType="carrentalModel.Admin_register" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="carrentalModel.car_category" Width="1.5" PointX="6" PointY="4.875" />
+        <EntityTypeShape EntityType="carrentalModel.Fuel_Type" Width="1.5" PointX="6" PointY="2.625" />
+        <EntityTypeShape EntityType="carrentalModel.car_type" Width="1.5" PointX="10.375" PointY="1.5" />
+        <EntityTypeShape EntityType="carrentalModel.City" Width="1.5" PointX="13" PointY="4.75" />
+        <AssociationConnector Association="carrentalModel.FK_car_type_ToTable" />
+        <AssociationConnector Association="carrentalModel.FK_car_type_ToTable_1" />
+        <AssociationConnector Association="carrentalModel.FK_car_type_ToTable_2" />
+        <AssociationConnector Association="carrentalModel.FK_car_type_ToTable_3" />
+        <EntityTypeShape EntityType="carrentalModel.Driver" Width="1.5" PointX="15.25" PointY="3.75" />
+        <AssociationConnector Association="carrentalModel.FK_Driver_ToTable" />
+        <EntityTypeShape EntityType="carrentalModel.Offer" Width="1.5" PointX="15.625" PointY="0.75" />
+        <EntityTypeShape EntityType="carrentalModel.Package" Width="1.5" PointX="12.625" PointY="8.375" />
+        <AssociationConnector Association="carrentalModel.FK_Package_ToTable" />
+        <EntityTypeShape EntityType="carrentalModel.contact" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="carrentalModel.User" Width="1.5" PointX="3.375" PointY="8" />
+        <EntityTypeShape EntityType="carrentalModel.booking" Width="1.5" PointX="17.875" PointY="2.875" />
+        <AssociationConnector Association="carrentalModel.FK_Table_ToTable" />
+        <AssociationConnector Association="carrentalModel.FK_Table_ToTable_1" />
+        <AssociationConnector Association="carrentalModel.FK_Table_ToTable_3" />
+        <EntityTypeShape EntityType="carrentalModel.service_category" Width="1.5" PointX="13" PointY="12" />
+        <EntityTypeShape EntityType="carrentalModel.service" Width="1.5" PointX="15.25" PointY="8.25" />
+        <AssociationConnector Association="carrentalModel.FK_services_ToTable" />
+        <AssociationConnector Association="carrentalModel.FK_services_ToTable_1" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

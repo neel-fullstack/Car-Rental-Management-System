@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="carrentalModelStoreContainer" CdmEntityContainer="carrentalEntities">
+    <EntitySetMapping Name="FAQs">
+      <EntityTypeMapping TypeName="carrentalModel.FAQ">
+        <MappingFragment StoreEntitySet="FAQ">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="carrentalModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="brand_logo" ColumnName="brand_logo" />
+          <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_register">
+      <EntityTypeMapping TypeName="carrentalModel.Admin_register">
+        <MappingFragment StoreEntitySet="Admin_register">
+          <ScalarProperty Name="admin_profilepic" ColumnName="admin_profilepic" />
+          <ScalarProperty Name="admin_contact" ColumnName="admin_contact" />
+          <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+          <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+          <ScalarProperty Name="admin_Id" ColumnName="admin_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="car_category">
+      <EntityTypeMapping TypeName="carrentalModel.car_category">
+        <MappingFragment StoreEntitySet="car_category">
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="category_Id" ColumnName="category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fuel_Type">
+      <EntityTypeMapping TypeName="carrentalModel.Fuel_Type">
+        <MappingFragment StoreEntitySet="Fuel_Type">
+          <ScalarProperty Name="Fuel_Type1" ColumnName="Fuel_Type" />
+          <ScalarProperty Name="Fuel_ID" ColumnName="Fuel_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="car_type">
+      <EntityTypeMapping TypeName="carrentalModel.car_type">
+        <MappingFragment StoreEntitySet="car_type">
+          <ScalarProperty Name="Descriptiton" ColumnName="Descriptiton" />
+          <ScalarProperty Name="Per_day_price" ColumnName="Per_day_price" />
+          <ScalarProperty Name="Car_number" ColumnName="Car_number" />
+          <ScalarProperty Name="Manufacture" ColumnName="Manufacture" />
+          <ScalarProperty Name="No_of_seats" ColumnName="No_of_seats" />
+          <ScalarProperty Name="images" ColumnName="images" />
+          <ScalarProperty Name="car_name" ColumnName="car_name" />
+          <ScalarProperty Name="City_id" ColumnName="City_id" />
+          <ScalarProperty Name="Fuel_id" ColumnName="Fuel_id" />
+          <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+          <ScalarProperty Name="Brand_id" ColumnName="Brand_id" />
+          <ScalarProperty Name="car_Id" ColumnName="car_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="carrentalModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="city_name" ColumnName="city_name" />
+          <ScalarProperty Name="city_Id" ColumnName="city_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="carrentalModel.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="City_id" ColumnName="City_id" />
+          <ScalarProperty Name="Driver_Address" ColumnName="Driver_Address" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Join_Date" ColumnName="Join_Date" />
+          <ScalarProperty Name="Driver_Email_" ColumnName="Driver_Email " />
+          <ScalarProperty Name="Driver_ContactNo" ColumnName="Driver_ContactNo" />
+          <ScalarProperty Name="Driver_Gender" ColumnName="Driver_Gender" />
+          <ScalarProperty Name="Driver_Age" ColumnName="Driver_Age" />
+          <ScalarProperty Name="Driver_Name" ColumnName="Driver_Name" />
+          <ScalarProperty Name="Driver_Licence" ColumnName="Driver_Licence" />
+          <ScalarProperty Name="Driver_Image" ColumnName="Driver_Image" />
+          <ScalarProperty Name="Driver_ID_" ColumnName="Driver_ID " />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offers">
+      <EntityTypeMapping TypeName="carrentalModel.Offer">
+        <MappingFragment StoreEntitySet="Offer">
+          <ScalarProperty Name="offer_todate" ColumnName="offer_todate" />
+          <ScalarProperty Name="offer_fromdate" ColumnName="offer_fromdate" />
+          <ScalarProperty Name="offer_discountrate" ColumnName="offer_discountrate" />
+          <ScalarProperty Name="offer_name" ColumnName="offer_name" />
+          <ScalarProperty Name="offer_Id" ColumnName="offer_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="carrentalModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="package_date" ColumnName="package_date" />
+          <ScalarProperty Name="package_charges" ColumnName="package_charges" />
+          <ScalarProperty Name="package_name" ColumnName="package_name" />
+          <ScalarProperty Name="carid" ColumnName="carid" />
+          <ScalarProperty Name="package_Id" ColumnName="package_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="carrentalModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="contact_Id" ColumnName="contact_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="carrentalModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Driving_license" ColumnName="Driving_license" />
+          <ScalarProperty Name="user_address" ColumnName="user_address" />
+          <ScalarProperty Name="user_contact" ColumnName="user_contact" />
+          <ScalarProperty Name="user_emailid" ColumnName="user_emailid" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_lastname" ColumnName="user_lastname" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookings">
+      <EntityTypeMapping TypeName="carrentalModel.booking">
+        <MappingFragment StoreEntitySet="booking">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="net_amount_pay" ColumnName="net_amount_pay" />
+          <ScalarProperty Name="driver_charge" ColumnName="driver_charge" />
+          <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+          <ScalarProperty Name="no_of_days" ColumnName="no_of_days" />
+          <ScalarProperty Name="dropaddress" ColumnName="dropaddress" />
+          <ScalarProperty Name="droplocation" ColumnName="droplocation" />
+          <ScalarProperty Name="pickupaddress" ColumnName="pickupaddress" />
+          <ScalarProperty Name="pickuplocation" ColumnName="pickuplocation" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="booking_date" ColumnName="booking_date" />
+          <ScalarProperty Name="mode_of_payment" ColumnName="mode_of_payment" />
+          <ScalarProperty Name="with_without_driver" ColumnName="with/without_driver" />
+          <ScalarProperty Name="offer_id" ColumnName="offer_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="car_id" ColumnName="car_id" />
+          <ScalarProperty Name="booking_Id" ColumnName="booking_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="service_category">
+      <EntityTypeMapping TypeName="carrentalModel.service_category">
+        <MappingFragment StoreEntitySet="service_category">
+          <ScalarProperty Name="servicename" ColumnName="servicename" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="services">
+      <EntityTypeMapping TypeName="carrentalModel.service">
+        <MappingFragment StoreEntitySet="services">
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="service1" ColumnName="service" />
+          <ScalarProperty Name="pickup" ColumnName="pickup" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sId" ColumnName="sId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

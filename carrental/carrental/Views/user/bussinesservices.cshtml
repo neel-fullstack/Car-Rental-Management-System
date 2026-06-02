@@ -1,0 +1,131 @@
+﻿@model carrental.Models.service
+
+@{
+    ViewBag.Title = "bussinesservices";
+}
+@{
+    Layout = "~/Views/Shared/_Userlayout3.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <div class="container-fluid pt-5">
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="col-lg-8 mb-5">
+                        <h1 class="display-4 text-uppercase mb-5">BUSINESS / CORPORATES</h1>
+                        <div class="row mx-n2 mb-3">
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/1.png" alt="">
+                            </div>
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/2.png" alt="">
+                            </div>
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/3.png" alt="">
+                            </div>
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/4.png" alt="">
+                            </div>
+                        </div>
+                        <p>
+                            Car Rentals as a corporate car rental agency to offer various packages for a large and small organization. It is one of the best Business / Corporate car rental service providers in Delhi which has reasonable as well as competitive packages for trade. Our well-maintained cars with professional and trained chauffeurs made us a trusted name as a car rental agency for corporates in Delhi.
+                        </p>
+                        <p>
+                            If you are a Business / Corporate and wish to get us on board for handling the human transportation of your staff, we assure you to provide you with astounding services. We have been working with various corporates over the last time we have received excellent reviews regarding our drivers and our cars. Also, we provide a dedicated relationship manager for the corporates along with access to accounts management tools and support, an online booking facility, a 24*7 helpline, etc. These features made us ranked among the best corporate car rental company in Delhi, Chandigarh, Amritsar, and all over India.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="contact-form bg-light mb-4" style="width:450px; padding:25px;">
+                            <form>
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="row">
+                                    <div class="col-6 form-group">
+                                        @*  @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control  p-4", @placeholder = "Enter Your Name" } })
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+
+                                    </div>
+
+                                    <div class="col-6 form-group">
+                                        @*   @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                       
+                                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control p-4", @placeholder = "Enter Your EmailID" } })
+                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                       
+                                    </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @*  @Html.LabelFor(model => model.mobileno, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                      
+                                            @Html.EditorFor(model => model.mobileno, new { htmlAttributes = new { @class = "form-control  p-4", @placeholder = "Enter Your ContactNo" } })
+                                            @Html.ValidationMessageFor(model => model.mobileno, "", new { @class = "text-danger" })
+                                       
+                                    </div>
+
+                                    <div class="form-group">
+                                        @* @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                        
+                                            @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control datepicker  p-4", @placeholder = "Enter Your Date" } })
+                                            @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+                                      
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @*  @Html.LabelFor(model => model.pickup, "pickup", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                        <label class="control-label col-md-2">City</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownListFor(model => model.pickup, (IEnumerable<SelectListItem>)ViewData["city"])
+                                            @*@Html.DropDownList("Brand_id", null, htmlAttributes: new { @class = "form-control" })*@
+                                            @Html.ValidationMessageFor(model => model.pickup, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Service</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownListFor(model => model.service1, (IEnumerable<SelectListItem>)ViewData["service_category"])
+                                            @*@Html.DropDownList("Brand_id", null, htmlAttributes: new { @class = "form-control" })*@
+                                            @Html.ValidationMessageFor(model => model.service1, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            @Html.TextAreaFor(model => model.message, new { htmlAttributes = new { @class = "form-control py-3 px-4", @placeholder = "Enter Your Message" } })
+                                            @Html.ValidationMessageFor(model => model.message, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" />
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>  
+    </div>
+}
+

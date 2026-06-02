@@ -1,0 +1,40 @@
+﻿@model IEnumerable<carrental.Models.Brand>
+
+@{
+    ViewBag.Title = "brand";
+}
+@{
+    Layout = "~/Views/Shared/_Userlayout2.cshtml";
+}
+
+
+<div class="container-fluid ">
+    <div class="container py-5">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+
+
+
+
+
+
+
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="rent-item mb-4">
+
+                        <img src="~/Upload/@item.brand_logo" style="width:100px; height: 100px;" alt="">
+                        <div>
+                            <h1>  @Html.DisplayFor(modelItem => item.brand_name)</h1>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                    }
+                
+            </div>
+        </div>
+        </div>

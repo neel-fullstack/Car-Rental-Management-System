@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="carrentalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin_register">
+    <Key>
+      <PropertyRef Name="admin_Id" />
+    </Key>
+    <Property Name="admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_name" Type="varchar" MaxLength="50" />
+    <Property Name="admin_password" Type="varchar" MaxLength="50" />
+    <Property Name="admin_email" Type="varchar" MaxLength="50" />
+    <Property Name="admin_contact" Type="varchar" MaxLength="50" />
+    <Property Name="admin_profilepic" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="booking_Id" />
+    </Key>
+    <Property Name="booking_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="car_id" Type="int" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="offer_id" Type="int" />
+    <Property Name="with/without_driver" Type="varchar" MaxLength="50" />
+    <Property Name="mode_of_payment" Type="varchar" MaxLength="50" />
+    <Property Name="booking_date" Type="datetime" />
+    <Property Name="start_date" Type="datetime" />
+    <Property Name="start_time" Type="datetime" />
+    <Property Name="end_date" Type="datetime" />
+    <Property Name="end_time" Type="datetime" />
+    <Property Name="pickuplocation" Type="varchar" MaxLength="50" />
+    <Property Name="pickupaddress" Type="varchar" MaxLength="50" />
+    <Property Name="droplocation" Type="varchar" MaxLength="50" />
+    <Property Name="dropaddress" Type="varchar" MaxLength="50" />
+    <Property Name="no_of_days" Type="varchar" MaxLength="50" />
+    <Property Name="bill_amount" Type="varchar" MaxLength="50" />
+    <Property Name="driver_charge" Type="varchar" MaxLength="50" />
+    <Property Name="net_amount_pay" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="brand_logo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="car_category">
+    <Key>
+      <PropertyRef Name="category_Id" />
+    </Key>
+    <Property Name="category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="car_type">
+    <Key>
+      <PropertyRef Name="car_Id" />
+    </Key>
+    <Property Name="car_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Brand_id" Type="int" />
+    <Property Name="Category_id" Type="int" />
+    <Property Name="Fuel_id" Type="int" />
+    <Property Name="City_id" Type="int" />
+    <Property Name="car_name" Type="varchar" MaxLength="50" />
+    <Property Name="images" Type="varchar" MaxLength="50" />
+    <Property Name="No_of_seats" Type="int" />
+    <Property Name="Manufacture" Type="int" />
+    <Property Name="Car_number" Type="varchar" MaxLength="50" />
+    <Property Name="Per_day_price" Type="int" />
+    <Property Name="Descriptiton" Type="varchar" MaxLength="600" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="city_Id" />
+    </Key>
+    <Property Name="city_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="contact_Id" />
+    </Key>
+    <Property Name="contact_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="500" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="subject" Type="varchar" MaxLength="50" />
+    <Property Name="message" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="Driver_ID " />
+    </Key>
+    <Property Name="Driver_ID " Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Driver_Image" Type="varchar" MaxLength="50" />
+    <Property Name="Driver_Licence" Type="varchar" MaxLength="50" />
+    <Property Name="Driver_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Driver_Age" Type="int" />
+    <Property Name="Driver_Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Driver_ContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="Driver_Email " Type="varchar" MaxLength="50" />
+    <Property Name="Join_Date" Type="date" />
+    <Property Name="Salary" Type="varchar" MaxLength="50" />
+    <Property Name="Experience" Type="varchar" MaxLength="500" />
+    <Property Name="Driver_Address" Type="varchar" MaxLength="500" />
+    <Property Name="City_id" Type="int" />
+  </EntityType>
+  <EntityType Name="FAQ">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="question" Type="varchar" MaxLength="500" />
+    <Property Name="answer" Type="varchar" MaxLength="1500" />
+  </EntityType>
+  <EntityType Name="Fuel_Type">
+    <Key>
+      <PropertyRef Name="Fuel_ID" />
+    </Key>
+    <Property Name="Fuel_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fuel_Type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="offer_Id" />
+    </Key>
+    <Property Name="offer_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="offer_name" Type="varchar" MaxLength="500" />
+    <Property Name="offer_discountrate" Type="varchar" MaxLength="50" />
+    <Property Name="offer_fromdate" Type="datetime" />
+    <Property Name="offer_todate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="package_Id" />
+    </Key>
+    <Property Name="package_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="carid" Type="int" />
+    <Property Name="package_name" Type="varchar" MaxLength="500" />
+    <Property Name="package_charges" Type="varchar" MaxLength="50" />
+    <Property Name="package_date" Type="date" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="service_category">
+    <Key>
+      <PropertyRef Name="serviceId" />
+    </Key>
+    <Property Name="serviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="servicename" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="services">
+    <Key>
+      <PropertyRef Name="sId" />
+    </Key>
+    <Property Name="sId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="mobileno" Type="varchar" MaxLength="10" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="pickup" Type="int" />
+    <Property Name="service" Type="int" />
+    <Property Name="message" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_Id" />
+    </Key>
+    <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="50" />
+    <Property Name="user_lastname" Type="varchar" MaxLength="50" />
+    <Property Name="user_password" Type="varchar" MaxLength="50" />
+    <Property Name="user_emailid" Type="varchar" MaxLength="50" />
+    <Property Name="user_contact" Type="varchar" MaxLength="10" />
+    <Property Name="user_address" Type="varchar" MaxLength="500" />
+    <Property Name="Driving_license" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_car_type_ToTable">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="car_type">
+        <PropertyRef Name="Brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_car_type_ToTable_1">
+    <End Role="car_category" Type="Self.car_category" Multiplicity="0..1" />
+    <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_category">
+        <PropertyRef Name="category_Id" />
+      </Principal>
+      <Dependent Role="car_type">
+        <PropertyRef Name="Category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_car_type_ToTable_2">
+    <End Role="Fuel_Type" Type="Self.Fuel_Type" Multiplicity="0..1" />
+    <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fuel_Type">
+        <PropertyRef Name="Fuel_ID" />
+      </Principal>
+      <Dependent Role="car_type">
+        <PropertyRef Name="Fuel_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_car_type_ToTable_3">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="city_Id" />
+      </Principal>
+      <Dependent Role="car_type">
+        <PropertyRef Name="City_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Driver_ToTable">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="city_Id" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="City_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Package_ToTable">
+    <End Role="car_type" Type="Self.car_type" Multiplicity="0..1" />
+    <End Role="Package" Type="Self.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_type">
+        <PropertyRef Name="car_Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="carid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_ToTable">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="city_Id" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="pickup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_ToTable_1">
+    <End Role="service_category" Type="Self.service_category" Multiplicity="0..1" />
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service_category">
+        <PropertyRef Name="serviceId" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ToTable">
+    <End Role="car_type" Type="Self.car_type" Multiplicity="0..1" />
+    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_type">
+        <PropertyRef Name="car_Id" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="car_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ToTable_1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ToTable_3">
+    <End Role="Offer" Type="Self.Offer" Multiplicity="0..1" />
+    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="offer_Id" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="offer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="carrentalModelStoreContainer">
+    <EntitySet Name="Admin_register" EntityType="Self.Admin_register" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="car_category" EntityType="Self.car_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="car_type" EntityType="Self.car_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FAQ" EntityType="Self.FAQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fuel_Type" EntityType="Self.Fuel_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="service_category" EntityType="Self.service_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="services" EntityType="Self.services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_car_type_ToTable" Association="Self.FK_car_type_ToTable">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="car_type" EntitySet="car_type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_car_type_ToTable_1" Association="Self.FK_car_type_ToTable_1">
+      <End Role="car_category" EntitySet="car_category" />
+      <End Role="car_type" EntitySet="car_type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_car_type_ToTable_2" Association="Self.FK_car_type_ToTable_2">
+      <End Role="Fuel_Type" EntitySet="Fuel_Type" />
+      <End Role="car_type" EntitySet="car_type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_car_type_ToTable_3" Association="Self.FK_car_type_ToTable_3">
+      <End Role="City" EntitySet="City" />
+      <End Role="car_type" EntitySet="car_type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Driver_ToTable" Association="Self.FK_Driver_ToTable">
+      <End Role="City" EntitySet="City" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Package_ToTable" Association="Self.FK_Package_ToTable">
+      <End Role="car_type" EntitySet="car_type" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_ToTable" Association="Self.FK_services_ToTable">
+      <End Role="City" EntitySet="City" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_ToTable_1" Association="Self.FK_services_ToTable_1">
+      <End Role="service_category" EntitySet="service_category" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+      <End Role="car_type" EntitySet="car_type" />
+      <End Role="booking" EntitySet="booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ToTable_1" Association="Self.FK_Table_ToTable_1">
+      <End Role="User" EntitySet="User" />
+      <End Role="booking" EntitySet="booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ToTable_3" Association="Self.FK_Table_ToTable_3">
+      <End Role="Offer" EntitySet="Offer" />
+      <End Role="booking" EntitySet="booking" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

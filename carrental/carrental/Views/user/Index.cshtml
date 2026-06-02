@@ -1,0 +1,50 @@
+﻿@model IEnumerable<carrental.Models.car_type>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_Userlayout.cshtml";
+}
+
+
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <h1 class="display-4 text-uppercase text-center mb-5">Find Your Car</h1>
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <!-- Rent A Car Start -->
+
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="rent-item mb-4">
+                        <img class="img-fluid mb-4" src="~/Upload/@item.images" style="width:100%; height: 100%;" alt="">
+                        <h4 class="text-uppercase mb-4">   @Html.DisplayFor(modelItem => item.car_name)</h4>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="px-2">
+                                <i class="fa fa-car text-primary mr-1"></i>
+                                <span>  @Html.DisplayFor(modelItem => item.Manufacture)</span>
+                            </div>
+                            <div class="px-2 border-left border-right">
+                                <i class="fa  fa-map-marker text-primary mr-1"></i>
+                                <span>  @Html.DisplayFor(modelItem => item.City.city_name)</span>
+                            </div>
+                            <div class="px-2">
+                                <a href="~/Views/user/Index.cshtml"></a>
+                                <i class="fa fa-gas-pump text-primary mr-1"></i>
+                                <span>  @Html.DisplayFor(modelItem => item.Fuel_Type.Fuel_Type1)</span>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary px-3" href="/user/cardetails/@item.car_Id"> ₹  @Html.DisplayFor(modelItem => item.Per_day_price) / DAY</a>
+                    </div>
+                </div>
+
+
+
+                <!-- Rent A Car End -->
+            }
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<carrental.Models.booking>
+
+@{
+    Layout = "~/Views/Shared/_Userlayout2.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.with_without_driver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mode_of_payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.booking_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pickuplocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pickupaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.droplocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dropaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.no_of_days)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bill_amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.driver_charge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.net_amount_pay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.car_type.car_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.user_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Offer.offer_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.with_without_driver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mode_of_payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickuplocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickupaddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.droplocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dropaddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_of_days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bill_amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.driver_charge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.net_amount_pay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.car_type.car_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.user_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Offer.offer_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.booking_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.booking_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.booking_Id })
+            </td>
+        </tr>
+    }
+
+</table>

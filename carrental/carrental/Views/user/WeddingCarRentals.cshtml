@@ -1,0 +1,140 @@
+﻿@model carrental.Models.service
+
+@{
+    ViewBag.Title = "WeddingCarRentals";
+}
+@{
+    Layout = "~/Views/Shared/_Userlayout3.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <div class="container-fluid pt-5">
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="col-lg-8 mb-5">
+                        <h1 class="display-4 text-uppercase mb-5">WEDDING CAR RENTALS</h1>
+                        <div class="row mx-n2 mb-3">
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/gallery-1.jpg" alt="">
+                            </div>
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/gallery-2.jpg" alt="">
+                            </div>
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/gallery-3.jpg" alt="">
+                            </div>
+                            <div class="col-md-3 col-6 px-2 pb-2">
+                                <img class="img-fluid w-100" src="img/gallery-4.jpg" alt="">
+                            </div>
+                        </div>
+                        <p>We serve in various prestigious events in Delhi, Chandigarh & all over India. From being a transport support company for big events providing car rental for shooting. We provides complete transport solutions for VIP delegations. Easily plan a conference without having to worry about conveyance as with us you can rent a car immediately. Amazing and pocket friendly packages. Also, with some nominal additional charges cabs can be retained beyond package limits</p>
+                        <p></p>
+                        <td>
+                            Benefits of our Luxury Wedding Car cab:
+                           
+                          
+                            
+                            
+
+                            <ul>
+                                <li> Our luxury Wedding cars are affordable</li>
+                                <li>  24×7 rental facility is available</li>
+                                <li>Trained driver for a safe journey</li>
+                                <li>Doorstep picks and drops service.</li>
+                            </ul>
+                        </td>
+                    </div>
+
+
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="contact-form bg-light mb-4" style="width:450px; padding:25px;">
+                            <form>
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="row">
+                                    <div class="col-6 form-group">
+                                        @*  @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control  p-4", @placeholder = "Enter Your Name" } })
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+
+                                    </div>
+
+                                    <div class="col-6 form-group">
+                                        @*   @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control p-4", @placeholder = "Enter Your EmailID" } })
+                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @*  @Html.LabelFor(model => model.mobileno, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                    @Html.EditorFor(model => model.mobileno, new { htmlAttributes = new { @class = "form-control  p-4", @placeholder = "Enter Your ContactNo" } })
+                                    @Html.ValidationMessageFor(model => model.mobileno, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    @* @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })*@
+
+                                    @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control datepicker p-4", @placeholder = "Enter Your Date" } })
+                                    @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    @*  @Html.LabelFor(model => model.pickup, "pickup", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label class="control-label col-md-2">City</label>
+                                    <div class="col-md-10">
+                                        @Html.DropDownListFor(model => model.pickup, (IEnumerable<SelectListItem>)ViewData["city"])
+                                        @*@Html.DropDownList("Brand_id", null, htmlAttributes: new { @class = "form-control" })*@
+                                        @Html.ValidationMessageFor(model => model.pickup, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Service</label>
+                                    <div class="col-md-10">
+                                        @Html.DropDownListFor(model => model.service1, (IEnumerable<SelectListItem>)ViewData["service_category"])
+                                        @*@Html.DropDownList("Brand_id", null, htmlAttributes: new { @class = "form-control" })*@
+                                        @Html.ValidationMessageFor(model => model.service1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.message, new { htmlAttributes = new { @class = "form-control py-3 px-4", @placeholder = "Enter Your Message" } })
+                                        @Html.ValidationMessageFor(model => model.message, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

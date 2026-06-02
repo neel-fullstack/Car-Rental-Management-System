@@ -1,0 +1,129 @@
+﻿@model carrental.Models.User
+
+@{
+    ViewBag.Title = "userregister";
+}
+@{
+    Layout = "~/Views/Shared/_Userlayout2.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.user_address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.user_address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.user_address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Driving_license, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Driving_license, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Driving_license, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+
+    <br />
+    <br />
+    <br />
+    <center>
+        <div class="form-horizontal">
+            <div class="col-lg-4 mb-5">
+                <div class="bg-secondary p-5">
+                    <h1 class="display-6 text-primary text-center mb-4">Register Here</h1>
+                    <br />
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.user_name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.user_name, new { htmlAttributes = new { @class = "form-control", @placeholder = "FirstName" } })
+                            @Html.ValidationMessageFor(model => model.user_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    @*  @Html.EditorFor(model => model.ToEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your EmailID...!!!" } })*@
+
+
+
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.user_lastname, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.user_lastname, new { htmlAttributes = new { @class = "form-control", @placeholder = "LastName" } })
+                            @Html.ValidationMessageFor(model => model.user_lastname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                     @*   @Html.LabelFor(model => model.user_password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.user_password, new { htmlAttributes = new { @class = "form-control", @placeholder = "CreatPassword" } })
+                            @Html.ValidationMessageFor(model => model.user_password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                       @* @Html.LabelFor(model => model.user_emailid, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.user_emailid, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.user_emailid, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                      @*  @Html.LabelFor(model => model.user_contact, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.user_contact, new { htmlAttributes = new { @class = "form-control", @placeholder = "MobileNumber" } })
+                            @Html.ValidationMessageFor(model => model.user_contact, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Register" class="btn btn-primary btn-block" />
+                        </div>
+                    </div>
+                    <p>
+                        Already have an account? <br />
+                        <a href="/User/userlogin"> Login Here...!</a>
+                    </p>
+
+
+
+                    @*<div class="form-group mb-0">
+            <button class="btn btn-primary btn-block" type="submit" style="height: 50px;">Check Now</button>
+        </div>*@
+                </div>
+            </div>
+        </div>
+    </center>
+
+
+
+
+
+}
+
+

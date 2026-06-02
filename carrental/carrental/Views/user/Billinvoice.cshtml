@@ -1,0 +1,316 @@
+﻿@model carrental.Models.booking
+@{
+    Layout = "~/Views/Shared/_Userlayout2.cshtml";
+    carrental.Models.car_type cc = (carrental.Models.car_type)ViewData["cartype"];
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<button class="btn btn-info" id="download"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+<br />
+<br />
+<div class="invoice overflow-auto" id="invoice">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="d-flex flex-row p-4  bg-secondary ">
+                            <div class="col-md-6">
+                                <img src="~/Admin/assets/images/whitelogo.png" height="70px" width="250px">
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <p class="font-weight-bold mb-1 text-primary">Invoice #@Model.booking_Id</p>
+                                <p class="text-white">Booking Date:@Model.booking_date</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row pb-5 p-5">
+                            <div class="col-md-6">
+                                <p class="font-weight-bold mb-4">Customer Information</p>
+                                <p class="mb-1">@Model.User.user_name @Model.User.user_lastname</p>
+                                <p class="mb-1">@Model.User.user_contact</p>
+                                <p class="mb-1">@Model.User.user_emailid</p>
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <p class="font-weight-bold mb-4">Payment Details</p>
+                                @*<p class="mb-1"><span class="text-muted">VAT: </span> 1425782</p>
+                                    <p class="mb-1"><span class="text-muted">VAT ID: </span> 10253642</p>*@
+                                <p class="mb-1"><span class="text-muted">Payment Type: </span> @Model.mode_of_payment</p>
+
+                            </div>
+                        </div>
+
+                        <div class="row p-5">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th class="border-0 text-uppercase small font-weight-bold">Car</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Pickup Location</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Drop Location</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Start Date</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">End Date</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">No Of Days</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Driver</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>@Model.car_type.car_name</td>
+
+                                            <td>@Model.pickuplocation</td>
+                                            <td>@Model.droplocation</td>
+                                            <td>@Model.start_date</td>
+                                            <td>@Model.end_date</td>
+                                            <td>@Model.no_of_days</td>
+                                            <td>@Model.with_without_driver</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row-reverse bg-secondary text-white p-4">
+                            <div class="py-3 px-5 text-right">
+                                <div class="mb-2 text-primary">Grand Total</div>
+                                <div class="h2 font-weight-light text-white">₹@Model.net_amount_pay</div>
+                            </div>
+
+                            <div class="py-3 px-5 text-right">
+                                <div class="mb-2 text-primary">Driver Charge</div>
+                                <div class="h2 font-weight-light text-white">₹@Model.driver_charge</div>
+                            </div>
+
+                            <div class="py-3 px-5 text-right">
+                                <div class="mb-2 text-primary">Bill amount</div>
+                                <div class="h2 font-weight-light text-white">₹@Model.bill_amount</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-primary mt-5 mb-5 text-center ">Thank You For Booking <a class="text-secondary" href="/user/index">BACK TO HOME</a></div>
+
+    </div>
+
+
+
+    <!--<style>
+        .invoice-title h2, .invoice-title h3 {
+            display: inline-block;
+        }
+
+        .table > tbody > tr > .no-line {
+            border-top: none;
+        }
+
+        .table > thead > tr > .no-line {
+            border-bottom: none;
+        }
+
+        .table > tbody > tr > .thick-line {
+            border-top: 2px solid;
+        }
+
+    </style>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="invoice-title">
+                    <h2>Invoice</h2>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <address>
+                            <strong>Billed To:</strong><br>
+                            John Smith<br>
+                            1234 Main<br>
+                            Apt. 4B<br>
+                            Springfield, ST 54321
+                        </address>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <address>
+                            <strong>Payment Method:</strong><br>
+                            Visa ending **** 4242<br>
+                            jsmith@email.com
+                        </address>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <address>
+                            <strong>Order Date:</strong><br>
+                            March 7, 2014<br><br>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Order summary</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <td><strong>Item</strong></td>
+                                        <td class="text-center"><strong>Price</strong></td>
+                                        <td class="text-center"><strong>Quantity</strong></td>
+                                        <td class="text-right"><strong>Totals</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>-->
+    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+    <!--<tr>
+                                        <td>BS-200</td>
+                                        <td class="text-center">$10.99</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right">$10.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BS-400</td>
+                                        <td class="text-center">$20.00</td>
+                                        <td class="text-center">3</td>
+                                        <td class="text-right">$60.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BS-1000</td>
+                                        <td class="text-center">$600.00</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-right">$600.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="thick-line"></td>
+                                        <td class="thick-line"></td>
+                                        <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                                        <td class="thick-line text-right">$670.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong>Shipping</strong></td>
+                                        <td class="no-line text-right">$15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong>Total</strong></td>
+                                        <td class="no-line text-right">$685.99</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    @*<!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: %;
+                }
+
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                    background-color:;
+                }
+            </style>
+        </head>
+        <body>
+
+            <h2>Invoice</h2>
+
+            <table class="bg-secondary p-5 mb-5">
+                <tr>
+                    <th>BookingId</th>
+
+                    <td>@Model.booking_Id</td>
+                </tr>
+                <tr>
+                    <th>UserID</th>
+                    <td>@Model.user_id</td>
+                </tr>
+                <tr>
+                    <th>BookingDate</th>
+                    <td>@Model.booking_date</td>
+                <tr/>
+                <tr>
+                    <th>PickupLocation</th>
+                    <td>@Model.pickuplocation</td>
+                </tr>
+                <tr>
+                    <th>DropLocation</th>
+                    <td>@Model.droplocation</td>
+               </tr>
+                <tr>
+                    <th>StartDate</th>
+                    <td>@Model.start_date</td>
+                </tr>
+                <tr>
+                    <th>EndDate</th>
+                    <td>@Model.end_date</td>
+                </tr>
+                <tr>
+                    <th>NoOfDays</th>
+                    <td>@Model.no_of_days</td>
+                </tr>
+
+
+            </table>
+
+
+
+
+        </body>
+        </html>*@
+
+    <script>
+
+
+        window.onload = function () {
+            document.getElementById("download")
+                .addEventListener("click", () => {
+                    const invoice = this.document.getElementById("invoice");
+                    console.log(invoice);
+                    console.log(window);
+                    var opt = {
+                        margin: 1,
+                     
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scaler: 2 },
+                        jspdf: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    };
+                    html2pdf().from(invoice).save();
+
+                })
+        }
+      
+    </script>

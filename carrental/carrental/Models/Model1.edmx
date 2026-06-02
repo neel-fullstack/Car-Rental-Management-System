@@ -1,0 +1,983 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="carrentalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin_register">
+          <Key>
+            <PropertyRef Name="admin_Id" />
+          </Key>
+          <Property Name="admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_name" Type="varchar" MaxLength="50" />
+          <Property Name="admin_password" Type="varchar" MaxLength="50" />
+          <Property Name="admin_email" Type="varchar" MaxLength="50" />
+          <Property Name="admin_contact" Type="varchar" MaxLength="50" />
+          <Property Name="admin_profilepic" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="booking_Id" />
+          </Key>
+          <Property Name="booking_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="car_id" Type="int" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="offer_id" Type="int" />
+          <Property Name="with/without_driver" Type="varchar" MaxLength="50" />
+          <Property Name="mode_of_payment" Type="varchar" MaxLength="50" />
+          <Property Name="booking_date" Type="datetime" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="start_time" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="end_time" Type="datetime" />
+          <Property Name="pickuplocation" Type="varchar" MaxLength="50" />
+          <Property Name="pickupaddress" Type="varchar" MaxLength="50" />
+          <Property Name="droplocation" Type="varchar" MaxLength="50" />
+          <Property Name="dropaddress" Type="varchar" MaxLength="50" />
+          <Property Name="no_of_days" Type="varchar" MaxLength="50" />
+          <Property Name="bill_amount" Type="varchar" MaxLength="50" />
+          <Property Name="driver_charge" Type="varchar" MaxLength="50" />
+          <Property Name="net_amount_pay" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brand_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="brand_logo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="car_category">
+          <Key>
+            <PropertyRef Name="category_Id" />
+          </Key>
+          <Property Name="category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="car_type">
+          <Key>
+            <PropertyRef Name="car_Id" />
+          </Key>
+          <Property Name="car_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand_id" Type="int" />
+          <Property Name="Category_id" Type="int" />
+          <Property Name="Fuel_id" Type="int" />
+          <Property Name="City_id" Type="int" />
+          <Property Name="car_name" Type="varchar" MaxLength="50" />
+          <Property Name="images" Type="varchar" MaxLength="50" />
+          <Property Name="No_of_seats" Type="int" />
+          <Property Name="Manufacture" Type="int" />
+          <Property Name="Car_number" Type="varchar" MaxLength="50" />
+          <Property Name="Per_day_price" Type="int" />
+          <Property Name="Descriptiton" Type="varchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="city_Id" />
+          </Key>
+          <Property Name="city_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="contact_Id" />
+          </Key>
+          <Property Name="contact_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="500" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="subject" Type="varchar" MaxLength="50" />
+          <Property Name="message" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="Driver_ID " />
+          </Key>
+          <Property Name="Driver_ID " Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Driver_Image" Type="varchar" MaxLength="50" />
+          <Property Name="Driver_Licence" Type="varchar" MaxLength="50" />
+          <Property Name="Driver_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Driver_Age" Type="int" />
+          <Property Name="Driver_Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Driver_ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="Driver_Email " Type="varchar" MaxLength="50" />
+          <Property Name="Join_Date" Type="date" />
+          <Property Name="Salary" Type="varchar" MaxLength="50" />
+          <Property Name="Experience" Type="varchar" MaxLength="500" />
+          <Property Name="Driver_Address" Type="varchar" MaxLength="500" />
+          <Property Name="City_id" Type="int" />
+        </EntityType>
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="varchar" MaxLength="500" />
+          <Property Name="answer" Type="varchar" MaxLength="1500" />
+        </EntityType>
+        <EntityType Name="Fuel_Type">
+          <Key>
+            <PropertyRef Name="Fuel_ID" />
+          </Key>
+          <Property Name="Fuel_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fuel_Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Offer">
+          <Key>
+            <PropertyRef Name="offer_Id" />
+          </Key>
+          <Property Name="offer_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="offer_name" Type="varchar" MaxLength="500" />
+          <Property Name="offer_discountrate" Type="varchar" MaxLength="50" />
+          <Property Name="offer_fromdate" Type="datetime" />
+          <Property Name="offer_todate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="package_Id" />
+          </Key>
+          <Property Name="package_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="carid" Type="int" />
+          <Property Name="package_name" Type="varchar" MaxLength="500" />
+          <Property Name="package_charges" Type="varchar" MaxLength="50" />
+          <Property Name="package_date" Type="date" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="service_category">
+          <Key>
+            <PropertyRef Name="serviceId" />
+          </Key>
+          <Property Name="serviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servicename" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="services">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="mobileno" Type="varchar" MaxLength="10" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="pickup" Type="int" />
+          <Property Name="service" Type="int" />
+          <Property Name="message" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="user_Id" />
+          </Key>
+          <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" />
+          <Property Name="user_lastname" Type="varchar" MaxLength="50" />
+          <Property Name="user_password" Type="varchar" MaxLength="50" />
+          <Property Name="user_emailid" Type="varchar" MaxLength="50" />
+          <Property Name="user_contact" Type="varchar" MaxLength="10" />
+          <Property Name="user_address" Type="varchar" MaxLength="500" />
+          <Property Name="Driving_license" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_car_type_ToTable">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="Brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_car_type_ToTable_1">
+          <End Role="car_category" Type="Self.car_category" Multiplicity="0..1" />
+          <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="car_category">
+              <PropertyRef Name="category_Id" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_car_type_ToTable_2">
+          <End Role="Fuel_Type" Type="Self.Fuel_Type" Multiplicity="0..1" />
+          <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fuel_Type">
+              <PropertyRef Name="Fuel_ID" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="Fuel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_car_type_ToTable_3">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="car_type" Type="Self.car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_Id" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="City_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_ToTable">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_Id" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="City_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Package_ToTable">
+          <End Role="car_type" Type="Self.car_type" Multiplicity="0..1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="car_type">
+              <PropertyRef Name="car_Id" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="carid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_services_ToTable">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="services" Type="Self.services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_Id" />
+            </Principal>
+            <Dependent Role="services">
+              <PropertyRef Name="pickup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_services_ToTable_1">
+          <End Role="service_category" Type="Self.service_category" Multiplicity="0..1" />
+          <End Role="services" Type="Self.services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service_category">
+              <PropertyRef Name="serviceId" />
+            </Principal>
+            <Dependent Role="services">
+              <PropertyRef Name="service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable">
+          <End Role="car_type" Type="Self.car_type" Multiplicity="0..1" />
+          <End Role="booking" Type="Self.booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="car_type">
+              <PropertyRef Name="car_Id" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="car_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable_1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="booking" Type="Self.booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="user_Id" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable_3">
+          <End Role="Offer" Type="Self.Offer" Multiplicity="0..1" />
+          <End Role="booking" Type="Self.booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offer">
+              <PropertyRef Name="offer_Id" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="offer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="carrentalModelStoreContainer">
+          <EntitySet Name="Admin_register" EntityType="Self.Admin_register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="car_category" EntityType="Self.car_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="car_type" EntityType="Self.car_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAQ" EntityType="Self.FAQ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fuel_Type" EntityType="Self.Fuel_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service_category" EntityType="Self.service_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="services" EntityType="Self.services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_car_type_ToTable" Association="Self.FK_car_type_ToTable">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_car_type_ToTable_1" Association="Self.FK_car_type_ToTable_1">
+            <End Role="car_category" EntitySet="car_category" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_car_type_ToTable_2" Association="Self.FK_car_type_ToTable_2">
+            <End Role="Fuel_Type" EntitySet="Fuel_Type" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_car_type_ToTable_3" Association="Self.FK_car_type_ToTable_3">
+            <End Role="City" EntitySet="City" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_ToTable" Association="Self.FK_Driver_ToTable">
+            <End Role="City" EntitySet="City" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Package_ToTable" Association="Self.FK_Package_ToTable">
+            <End Role="car_type" EntitySet="car_type" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_services_ToTable" Association="Self.FK_services_ToTable">
+            <End Role="City" EntitySet="City" />
+            <End Role="services" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_services_ToTable_1" Association="Self.FK_services_ToTable_1">
+            <End Role="service_category" EntitySet="service_category" />
+            <End Role="services" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="car_type" EntitySet="car_type" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_1" Association="Self.FK_Table_ToTable_1">
+            <End Role="User" EntitySet="User" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_3" Association="Self.FK_Table_ToTable_3">
+            <End Role="Offer" EntitySet="Offer" />
+            <End Role="booking" EntitySet="booking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="carrentalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="answer" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="carrentalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FAQs" EntityType="Self.FAQ" />
+          <EntitySet Name="Brands" EntityType="carrentalModel.Brand" />
+          <EntitySet Name="Admin_register" EntityType="carrentalModel.Admin_register" />
+          <EntitySet Name="car_category" EntityType="carrentalModel.car_category" />
+          <EntitySet Name="Fuel_Type" EntityType="carrentalModel.Fuel_Type" />
+          <EntitySet Name="car_type" EntityType="carrentalModel.car_type" />
+          <EntitySet Name="Cities" EntityType="carrentalModel.City" />
+          <AssociationSet Name="FK_car_type_ToTable" Association="carrentalModel.FK_car_type_ToTable">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_car_type_ToTable_1" Association="carrentalModel.FK_car_type_ToTable_1">
+            <End Role="car_category" EntitySet="car_category" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_car_type_ToTable_2" Association="carrentalModel.FK_car_type_ToTable_2">
+            <End Role="Fuel_Type" EntitySet="Fuel_Type" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <AssociationSet Name="FK_car_type_ToTable_3" Association="carrentalModel.FK_car_type_ToTable_3">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="car_type" EntitySet="car_type" />
+          </AssociationSet>
+          <EntitySet Name="Drivers" EntityType="carrentalModel.Driver" />
+          <AssociationSet Name="FK_Driver_ToTable" Association="carrentalModel.FK_Driver_ToTable">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Driver" EntitySet="Drivers" />
+          </AssociationSet>
+          <EntitySet Name="Offers" EntityType="carrentalModel.Offer" />
+          <EntitySet Name="Packages" EntityType="carrentalModel.Package" />
+          <AssociationSet Name="FK_Package_ToTable" Association="carrentalModel.FK_Package_ToTable">
+            <End Role="car_type" EntitySet="car_type" />
+            <End Role="Package" EntitySet="Packages" />
+          </AssociationSet>
+          <EntitySet Name="contacts" EntityType="carrentalModel.contact" />
+          <EntitySet Name="Users" EntityType="carrentalModel.User" />
+          <EntitySet Name="bookings" EntityType="carrentalModel.booking" />
+          <AssociationSet Name="FK_Table_ToTable" Association="carrentalModel.FK_Table_ToTable">
+            <End Role="car_type" EntitySet="car_type" />
+            <End Role="booking" EntitySet="bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_1" Association="carrentalModel.FK_Table_ToTable_1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="booking" EntitySet="bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_3" Association="carrentalModel.FK_Table_ToTable_3">
+            <End Role="Offer" EntitySet="Offers" />
+            <End Role="booking" EntitySet="bookings" />
+          </AssociationSet>
+          <EntitySet Name="service_category" EntityType="carrentalModel.service_category" />
+          <EntitySet Name="services" EntityType="carrentalModel.service" />
+          <AssociationSet Name="FK_services_ToTable" Association="carrentalModel.FK_services_ToTable">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="service" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_services_ToTable_1" Association="carrentalModel.FK_services_ToTable_1">
+            <End Role="service_category" EntitySet="service_category" />
+            <End Role="service" EntitySet="services" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brand_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brand_logo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="car_type" Relationship="carrentalModel.FK_car_type_ToTable" FromRole="Brand" ToRole="car_type" />
+        </EntityType>
+        <EntityType Name="Admin_register">
+          <Key>
+            <PropertyRef Name="admin_Id" />
+          </Key>
+          <Property Name="admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_profilepic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="car_category">
+          <Key>
+            <PropertyRef Name="category_Id" />
+          </Key>
+          <Property Name="category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="car_type" Relationship="carrentalModel.FK_car_type_ToTable_1" FromRole="car_category" ToRole="car_type" />
+        </EntityType>
+        <EntityType Name="Fuel_Type">
+          <Key>
+            <PropertyRef Name="Fuel_ID" />
+          </Key>
+          <Property Name="Fuel_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fuel_Type1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="car_type" Relationship="carrentalModel.FK_car_type_ToTable_2" FromRole="Fuel_Type" ToRole="car_type" />
+        </EntityType>
+        <EntityType Name="car_type">
+          <Key>
+            <PropertyRef Name="car_Id" />
+          </Key>
+          <Property Name="car_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand_id" Type="Int32" />
+          <Property Name="Category_id" Type="Int32" />
+          <Property Name="Fuel_id" Type="Int32" />
+          <Property Name="City_id" Type="Int32" />
+          <Property Name="car_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="images" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="No_of_seats" Type="Int32" />
+          <Property Name="Manufacture" Type="Int32" />
+          <Property Name="Car_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Per_day_price" Type="Int32" />
+          <Property Name="Descriptiton" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Brand" Relationship="carrentalModel.FK_car_type_ToTable" FromRole="car_type" ToRole="Brand" />
+          <NavigationProperty Name="car_category" Relationship="carrentalModel.FK_car_type_ToTable_1" FromRole="car_type" ToRole="car_category" />
+          <NavigationProperty Name="Fuel_Type" Relationship="carrentalModel.FK_car_type_ToTable_2" FromRole="car_type" ToRole="Fuel_Type" />
+          <NavigationProperty Name="City" Relationship="carrentalModel.FK_car_type_ToTable_3" FromRole="car_type" ToRole="City" />
+          <NavigationProperty Name="Packages" Relationship="carrentalModel.FK_Package_ToTable" FromRole="car_type" ToRole="Package" />
+          <NavigationProperty Name="bookings" Relationship="carrentalModel.FK_Table_ToTable" FromRole="car_type" ToRole="booking" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="city_Id" />
+          </Key>
+          <Property Name="city_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="car_type" Relationship="carrentalModel.FK_car_type_ToTable_3" FromRole="City" ToRole="car_type" />
+          <NavigationProperty Name="Drivers" Relationship="carrentalModel.FK_Driver_ToTable" FromRole="City" ToRole="Driver" />
+          <NavigationProperty Name="services" Relationship="carrentalModel.FK_services_ToTable" FromRole="City" ToRole="service" />
+        </EntityType>
+        <Association Name="FK_car_type_ToTable">
+          <End Type="carrentalModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="carrentalModel.car_type" Role="car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="Brand_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_car_type_ToTable_1">
+          <End Type="carrentalModel.car_category" Role="car_category" Multiplicity="0..1" />
+          <End Type="carrentalModel.car_type" Role="car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="car_category">
+              <PropertyRef Name="category_Id" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_car_type_ToTable_2">
+          <End Type="carrentalModel.Fuel_Type" Role="Fuel_Type" Multiplicity="0..1" />
+          <End Type="carrentalModel.car_type" Role="car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fuel_Type">
+              <PropertyRef Name="Fuel_ID" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="Fuel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_car_type_ToTable_3">
+          <End Type="carrentalModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="carrentalModel.car_type" Role="car_type" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_Id" />
+            </Principal>
+            <Dependent Role="car_type">
+              <PropertyRef Name="City_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="Driver_ID_" />
+          </Key>
+          <Property Name="Driver_ID_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Driver_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_Licence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_Age" Type="Int32" />
+          <Property Name="Driver_Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_Email_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Join_Date" Type="DateTime" Precision="0" />
+          <Property Name="Salary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="City_id" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="carrentalModel.FK_Driver_ToTable" FromRole="Driver" ToRole="City" />
+        </EntityType>
+        <Association Name="FK_Driver_ToTable">
+          <End Type="carrentalModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="carrentalModel.Driver" Role="Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_Id" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="City_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Offer">
+          <Key>
+            <PropertyRef Name="offer_Id" />
+          </Key>
+          <Property Name="offer_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="offer_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="offer_discountrate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="offer_fromdate" Type="DateTime" Precision="3" />
+          <Property Name="offer_todate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="bookings" Relationship="carrentalModel.FK_Table_ToTable_3" FromRole="Offer" ToRole="booking" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="package_Id" />
+          </Key>
+          <Property Name="package_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="carid" Type="Int32" />
+          <Property Name="package_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="package_charges" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="package_date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="car_type" Relationship="carrentalModel.FK_Package_ToTable" FromRole="Package" ToRole="car_type" />
+        </EntityType>
+        <Association Name="FK_Package_ToTable">
+          <End Type="carrentalModel.car_type" Role="car_type" Multiplicity="0..1" />
+          <End Type="carrentalModel.Package" Role="Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="car_type">
+              <PropertyRef Name="car_Id" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="carid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="contact_Id" />
+          </Key>
+          <Property Name="contact_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="user_Id" />
+          </Key>
+          <Property Name="user_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_contact" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="user_address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Driving_license" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bookings" Relationship="carrentalModel.FK_Table_ToTable_1" FromRole="User" ToRole="booking" />
+        </EntityType>
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="booking_Id" />
+          </Key>
+          <Property Name="booking_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="car_id" Type="Int32" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="offer_id" Type="Int32" />
+          <Property Name="with_without_driver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mode_of_payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="booking_date" Type="DateTime" Precision="3" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="start_time" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="end_time" Type="DateTime" Precision="3" />
+          <Property Name="pickuplocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pickupaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="droplocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dropaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="no_of_days" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bill_amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="driver_charge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="net_amount_pay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="car_type" Relationship="carrentalModel.FK_Table_ToTable" FromRole="booking" ToRole="car_type" />
+          <NavigationProperty Name="User" Relationship="carrentalModel.FK_Table_ToTable_1" FromRole="booking" ToRole="User" />
+          <NavigationProperty Name="Offer" Relationship="carrentalModel.FK_Table_ToTable_3" FromRole="booking" ToRole="Offer" />
+        </EntityType>
+        <Association Name="FK_Table_ToTable">
+          <End Type="carrentalModel.car_type" Role="car_type" Multiplicity="0..1" />
+          <End Type="carrentalModel.booking" Role="booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="car_type">
+              <PropertyRef Name="car_Id" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="car_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable_1">
+          <End Type="carrentalModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="carrentalModel.booking" Role="booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="user_Id" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable_3">
+          <End Type="carrentalModel.Offer" Role="Offer" Multiplicity="0..1" />
+          <End Type="carrentalModel.booking" Role="booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offer">
+              <PropertyRef Name="offer_Id" />
+            </Principal>
+            <Dependent Role="booking">
+              <PropertyRef Name="offer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="service_category">
+          <Key>
+            <PropertyRef Name="serviceId" />
+          </Key>
+          <Property Name="serviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="services" Relationship="carrentalModel.FK_services_ToTable_1" FromRole="service_category" ToRole="service" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="sId" />
+          </Key>
+          <Property Name="sId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="pickup" Type="Int32" />
+          <Property Name="service1" Type="Int32" />
+          <Property Name="message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City" Relationship="carrentalModel.FK_services_ToTable" FromRole="service" ToRole="City" />
+          <NavigationProperty Name="service_category" Relationship="carrentalModel.FK_services_ToTable_1" FromRole="service" ToRole="service_category" />
+        </EntityType>
+        <Association Name="FK_services_ToTable">
+          <End Type="carrentalModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="carrentalModel.service" Role="service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="city_Id" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="pickup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_services_ToTable_1">
+          <End Type="carrentalModel.service_category" Role="service_category" Multiplicity="0..1" />
+          <End Type="carrentalModel.service" Role="service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service_category">
+              <PropertyRef Name="serviceId" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="service1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="carrentalModelStoreContainer" CdmEntityContainer="carrentalEntities">
+          <EntitySetMapping Name="FAQs">
+            <EntityTypeMapping TypeName="carrentalModel.FAQ">
+              <MappingFragment StoreEntitySet="FAQ">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="answer" ColumnName="answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="carrentalModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="brand_logo" ColumnName="brand_logo" />
+                <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_register">
+            <EntityTypeMapping TypeName="carrentalModel.Admin_register">
+              <MappingFragment StoreEntitySet="Admin_register">
+                <ScalarProperty Name="admin_profilepic" ColumnName="admin_profilepic" />
+                <ScalarProperty Name="admin_contact" ColumnName="admin_contact" />
+                <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+                <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+                <ScalarProperty Name="admin_Id" ColumnName="admin_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="car_category">
+            <EntityTypeMapping TypeName="carrentalModel.car_category">
+              <MappingFragment StoreEntitySet="car_category">
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="category_Id" ColumnName="category_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fuel_Type">
+            <EntityTypeMapping TypeName="carrentalModel.Fuel_Type">
+              <MappingFragment StoreEntitySet="Fuel_Type">
+                <ScalarProperty Name="Fuel_Type1" ColumnName="Fuel_Type" />
+                <ScalarProperty Name="Fuel_ID" ColumnName="Fuel_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="car_type">
+            <EntityTypeMapping TypeName="carrentalModel.car_type">
+              <MappingFragment StoreEntitySet="car_type">
+                <ScalarProperty Name="Descriptiton" ColumnName="Descriptiton" />
+                <ScalarProperty Name="Per_day_price" ColumnName="Per_day_price" />
+                <ScalarProperty Name="Car_number" ColumnName="Car_number" />
+                <ScalarProperty Name="Manufacture" ColumnName="Manufacture" />
+                <ScalarProperty Name="No_of_seats" ColumnName="No_of_seats" />
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="car_name" ColumnName="car_name" />
+                <ScalarProperty Name="City_id" ColumnName="City_id" />
+                <ScalarProperty Name="Fuel_id" ColumnName="Fuel_id" />
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Brand_id" ColumnName="Brand_id" />
+                <ScalarProperty Name="car_Id" ColumnName="car_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="carrentalModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="city_name" ColumnName="city_name" />
+                <ScalarProperty Name="city_Id" ColumnName="city_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="carrentalModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="City_id" ColumnName="City_id" />
+                <ScalarProperty Name="Driver_Address" ColumnName="Driver_Address" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Join_Date" ColumnName="Join_Date" />
+                <ScalarProperty Name="Driver_Email_" ColumnName="Driver_Email " />
+                <ScalarProperty Name="Driver_ContactNo" ColumnName="Driver_ContactNo" />
+                <ScalarProperty Name="Driver_Gender" ColumnName="Driver_Gender" />
+                <ScalarProperty Name="Driver_Age" ColumnName="Driver_Age" />
+                <ScalarProperty Name="Driver_Name" ColumnName="Driver_Name" />
+                <ScalarProperty Name="Driver_Licence" ColumnName="Driver_Licence" />
+                <ScalarProperty Name="Driver_Image" ColumnName="Driver_Image" />
+                <ScalarProperty Name="Driver_ID_" ColumnName="Driver_ID " />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offers">
+            <EntityTypeMapping TypeName="carrentalModel.Offer">
+              <MappingFragment StoreEntitySet="Offer">
+                <ScalarProperty Name="offer_todate" ColumnName="offer_todate" />
+                <ScalarProperty Name="offer_fromdate" ColumnName="offer_fromdate" />
+                <ScalarProperty Name="offer_discountrate" ColumnName="offer_discountrate" />
+                <ScalarProperty Name="offer_name" ColumnName="offer_name" />
+                <ScalarProperty Name="offer_Id" ColumnName="offer_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Packages">
+            <EntityTypeMapping TypeName="carrentalModel.Package">
+              <MappingFragment StoreEntitySet="Package">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="package_date" ColumnName="package_date" />
+                <ScalarProperty Name="package_charges" ColumnName="package_charges" />
+                <ScalarProperty Name="package_name" ColumnName="package_name" />
+                <ScalarProperty Name="carid" ColumnName="carid" />
+                <ScalarProperty Name="package_Id" ColumnName="package_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="carrentalModel.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="contact_Id" ColumnName="contact_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="carrentalModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Driving_license" ColumnName="Driving_license" />
+                <ScalarProperty Name="user_address" ColumnName="user_address" />
+                <ScalarProperty Name="user_contact" ColumnName="user_contact" />
+                <ScalarProperty Name="user_emailid" ColumnName="user_emailid" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_lastname" ColumnName="user_lastname" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bookings">
+            <EntityTypeMapping TypeName="carrentalModel.booking">
+              <MappingFragment StoreEntitySet="booking">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="net_amount_pay" ColumnName="net_amount_pay" />
+                <ScalarProperty Name="driver_charge" ColumnName="driver_charge" />
+                <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+                <ScalarProperty Name="no_of_days" ColumnName="no_of_days" />
+                <ScalarProperty Name="dropaddress" ColumnName="dropaddress" />
+                <ScalarProperty Name="droplocation" ColumnName="droplocation" />
+                <ScalarProperty Name="pickupaddress" ColumnName="pickupaddress" />
+                <ScalarProperty Name="pickuplocation" ColumnName="pickuplocation" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="booking_date" ColumnName="booking_date" />
+                <ScalarProperty Name="mode_of_payment" ColumnName="mode_of_payment" />
+                <ScalarProperty Name="with_without_driver" ColumnName="with/without_driver" />
+                <ScalarProperty Name="offer_id" ColumnName="offer_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="car_id" ColumnName="car_id" />
+                <ScalarProperty Name="booking_Id" ColumnName="booking_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service_category">
+            <EntityTypeMapping TypeName="carrentalModel.service_category">
+              <MappingFragment StoreEntitySet="service_category">
+                <ScalarProperty Name="servicename" ColumnName="servicename" />
+                <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="carrentalModel.service">
+              <MappingFragment StoreEntitySet="services">
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="service1" ColumnName="service" />
+                <ScalarProperty Name="pickup" ColumnName="pickup" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="sId" ColumnName="sId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
